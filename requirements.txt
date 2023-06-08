@@ -1,5 +1,5 @@
 Flask
 Gunicorn
-pip=23.1.2
+/opt/render/project/src/.venv/bin/python -m pip install --upgrade pip
 git+https://github.com/openai/whisper.git
 
