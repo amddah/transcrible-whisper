@@ -1,0 +1,39 @@
+
+.navbar {
+    box-shadow: 3px 3px rgb(235, 229, 229), -1em 0 .4em rgb(227, 227, 222); 
+    background-color: #fff;
+   
+}
+
+.navbar a{
+    margin-left: 80px;
+}
+ .language{
+    position:fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+
+} 
+
+#logo{
+    color: #0a6fdb;font-weight: bold;margin-left: -10px;
+}
+
+.nav-link{
+    white-space: nowrap;
+}
+@media(max-width:1024px){
+    #logo{
+        font-size: 1em;
+    }
+    .navbar .btn{
+        margin-right: -50px;
+    }
+    .language{
+        position:relative;
+       
+    
+    } 
+
+}

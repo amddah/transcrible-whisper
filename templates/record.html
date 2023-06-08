@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/record.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/nav.css')}}">
+    <!-- our project just needs Font Awesome Solid + Brands -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!-- bootstrap 5 cdn -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Enregistrer audio à partir de microphone</title>
+  <link rel="website icon" href="{{url_for('static',filename='image/icon.png')}}" type="png">
+</head>
+<body>
+  {% include 'navbar.html' %}
+<!-- nav bar  -->
+    <div class="contenair-record">
+        <div class="record">
+            <h1 class="translate" id="titreRecord" data-translation-key="titleRecord">Veuillez enregistrer l'audio</h1>
+           
+            <div class="d-flex bd-highlight">
+                <div class="p-2 w-100 bd-highlight">
+                    <button id="recordBtn"><i class="fa-solid fa-microphone fa-5x" id="fa-solid"></i></button>
+                    
+                    <div class="control-audio">
+                        <div class="display"> </div>
+                        <button id="remove" onclick="removeAudio()"><i class="fa-solid fa-trash fa-1x" style="color:#00235B;"></i></button>
+                    </div>
+                </div>
+                <div class="mt-auto p-2 bd-highlight">
+                    <button type="button" class="btn btn-primary btn-lg" id="sendBtn" onclick="sendAudio()" disabled>
+                      <span class="translate" data-translation-key="transcribe"> Transcrire</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="text-transcribe">
+            <div class="loader-overlay" id="loaderOverlay">
+                <div class="loader"></div>
+            </div>
+             
+                  <div class="btn-crud">
+                    <button type="button" class="btn btn-success" id="language-texte"></button>
+                    </div>
+            <div class="conten">  
+               <textarea name="text-transcribe" class="text-transcribe1" id="texte" cols="30" rows="10"readonly ></textarea>
+               <div class="btn-group" role="group" aria-label="Basic mixed styles example"> 
+            
+                <button type="button" class="btn btn-warning" id="removetexte">
+                    <i class="fa-solid fa-trash fa-1x" style="color:#fff;" ></i>
+                    <span class="translate" data-translation-key="deletetexte"> supprimer texte</span>
+                </button>
+                <button type="button" class="btn btn-warning" id="print" onclick="printTextarea()">
+                    <i class="fa-solid fa-print" style="color: #ffffff;"></i>
+                </button>
+                <button type="button" class="btn btn-danger"id="copyButton1" onclick="copier(1)">
+                    <i id="icone" class="fa-solid fa-copy" style="color: #fff;"></i> 
+                    <span class="translate" data-translation-key="copy"> Copy</span>
+                </button>
+          </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- fichier js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{url_for('static',filename='js/recorder.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/translate.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

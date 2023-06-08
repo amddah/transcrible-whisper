@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/nav.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/record.css')}}">
+    <!-- our project just needs Font Awesome Solid + Brands -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <!-- bootstrap 5 cdn -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>speech to text </title>
+  <link rel="website icon" href="{{url_for('static',filename='image/icon.png')}}" type="png">
+    
+</head>
+<body>
+     {% include 'navbar.html' %}
+    <div class="container">
+        
+        <header>
+            <div class="titre">
+               <center> <h1 class="translate" data-translation-key="headerTitle">Reconnaissance vocale - Dictée vocale & <br> transcription</h1>
+                <br>
+                <h5 class="translate" data-translation-key="headersousTitle">Prenez des notes avec votre voix gratuitement, ou transcrivez automatiquement <br> 
+                    des enregistrements audio et vidéo sur le champ <br> Sécurisé, précis et ultra rapide</h5>
+                </center>
+            </div>
+        </header>
+        <div class="item">
+            <div class="items">
+                <div class="micro"><i class="fa-solid fa-microphone fa-5x" style="color: rgb(5, 5, 60);" id="fasolid"></i></div>
+                <h3 class="translate" data-translation-key="DicteeVocale">Dictée vocale</h3>
+                <br>
+               <a href="/record"> <button type="button" class="btn btn-primary">
+                    <span class="translate" data-translation-key="startdicte"> Commencez à dicter</span></button>
+                </a>
+                <p class="translate" data-translation-key="startSave">Commencez à enregistrer votre audio et le transcrire automatiquement</p>
+            </div>
+            <div class="items">
+                <div class="file"><i class="fa-solid fa-file-audio fa-5x" style="color: rgb(5, 5, 60);"></i></div>
+                <h3 class="translate" data-translation-key="TranscrireSave">Transcrire des enregistrements</h3>
+               <br>
+               <a href="/import"><button type="button" class="btn btn-primary">
+                    <span class="translate" data-translation-key="startTranscrirbe"> Commencer la transcription </span></button>
+                </a> 
+                <p class="translate" data-translation-key="transcrireAudio">Transcrire automatiquement des enregistrements, fichiers audio et vidéo</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+    <!-- script js -->
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='js/translate.js') }}"></script>
+    <script src="{{url_for('static',filename='js/recorder.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

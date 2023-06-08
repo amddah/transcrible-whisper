@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{{url_for('he')}}" method="POST">
+        {{form.csrf_token}}
+        {{form.name.label}}
+        {{form.name}}
+        {{form.Password.label}}
+        {{form.Password}}
+    </form>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Enregistreur audio</title>
+</head>
+<body>
+	<h1>Enregistreur audio</h1>
+	<div>
+		<button id="start-button">Démarrer l'enregistrement</button>
+		<button id="stop-button" disabled>Arrêter l'enregistrement</button>
+	</div>
+	<script>
+		var startButton = document.getElementById('start-button');
+		var stopButton = document.getElementById('stop-button');
+		var recording = false;
+		var chunks = [];
+
+		function startRecording() {
+			chunks = [];
+			navigator.mediaDevices.getUserMedia({ audio: true })
+			.then(function(stream) {
+				recording = true;
+				var mediaRecorder = new MediaRecorder(stream);
+				mediaRecorder.addEventListener("dataavailable", function(event) {
+					chunks.push(event.data);
+				});
+				mediaRecorder.start();
+				startButton.disabled = true;
+				stopButton.disabled = false;
+			})
+			.catch(function(err) {
+				console.log(err);
+			});
+		}
+
+		function stopRecording() {
+			recording = false;
+			var mediaRecorder = chunks.length > 0 ? new MediaRecorder(new Blob(chunks)) : null;
+			if (mediaRecorder) {
+				mediaRecorder.addEventListener("dataavailable", function(event) {
+					var xhr = new XMLHttpRequest();
+					xhr.open('POST', '/save_audio', true);
+					xhr.setRequestHeader('Content-Type', 'audio/wav');
+					xhr.onreadystatechange = function() {
+						if (xhr.readyState === 4 && xhr.status === 200) {
+							console.log(xhr.responseText);
+						}
+					};
+					xhr.send(event.data);
+				});
+				mediaRecorder.start();
+				startButton.disabled = false;
+				stopButton.disabled = true;
+			}
+		}
+
+		startButton.onclick = function() {
+			startRecording();
+		};
+
+		stopButton.onclick = function() {
+			stopRecording();
+		};
+	</script>
