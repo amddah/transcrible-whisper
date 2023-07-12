@@ -8,7 +8,7 @@ This web application converts speech to text using the OpenAI Whisper model. It 
 1. Clone this code repository to your local machine:
 
 ```shell
-git clone <repository-link>
+git clone https://github.com/amddah/transcrible-whisper.git
 ```
 
 2. Navigate to the project directory:
