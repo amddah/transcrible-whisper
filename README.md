@@ -1,32 +1,64 @@
-# transcrible-whisper
-# Speech to Text App Web avec déploiement du modèle OpenAI Whisper
+# Transcrible-Whisper
+# Speech to Text Web App with OpenAI Whisper Model Deployment
 
-Cette application Web permet de convertir la parole en texte en utilisant le modèle OpenAI Whisper. Elle est développée en utilisant le framework Flask.
+This web application converts speech to text using the OpenAI Whisper model. It is developed using the Flask framework.
 
-#################### Installation
+## Installation
 
-1. Clonez ce dépôt de code sur votre machine locale :
+1. Clone this code repository to your local machine:
 
+```shell
+git clone <repository-link>
+```
 
-git clone <lien du dépôt>
-2. Accédez au répertoire du projet :
-   
+2. Navigate to the project directory:
+
+```shell
 cd transcrible-whisper
+```
 
+3. Create a virtual environment:
+
+```shell
 python -m venv venv
+```
 
-3. Activez l'environnement virtuel :
-   # Sur Windows
+4. Activate the virtual environment:
+
+```shell
+# On Windows
 venv\Scripts\activate
 
-# Sur macOS/Linux
+# On macOS/Linux
 source venv/bin/activate
-4. Installez les dépendances du projet :
-pip install -r requirements.txt
+```
 
-  5. Utilisation
-Lancez l'application Flask :
+5. Install the project dependencies:
+
+```shell
+pip install -r requirements.txt
+```
+
+## Usage
+
+1. Launch the Flask application:
+
+```shell
 flask run
-#############################################
-Contact
-Pour toute question ou demande de support, veuillez me contacter à l'adresse suivante : [abdoamdah3@gmail.com].
+```
+
+2. Access the following URL in your browser:
+
+```
+http://127.0.0.1:5000
+```
+
+3. Record or upload an audio file containing speech.
+
+4. Upload the audio file on the web application.
+
+5. The application will automatically convert the speech to text using the OpenAI Whisper model.
+
+## Contact
+
+For any questions or support requests, please contact me at the following email address: [abdoamdah3@gmail.com].
