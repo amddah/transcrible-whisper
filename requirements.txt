@@ -1,4 +1,9 @@
 Flask
 Gunicorn
 git+https://github.com/openai/whisper.git
-
+numba
+numpy
+torch
+tqdm
+more-itertools
+tiktoken==0.3.3
